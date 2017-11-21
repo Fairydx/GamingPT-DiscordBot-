@@ -1,0 +1,20 @@
+{
+  "name": "gamebotpt",
+  "version": "1.0.0",
+  "description": "Este bot faz parte da comunidade GamingPT no Discord!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fairydx",
+  "license": "ISC",
+  "dependencies": {
+    "bufferutil": "^3.0.3",
+    "discord.js": "^11.2.1",
+    "libsodium-wrappers": "^0.5.4",
+    "node": "^9.2.0",
+    "opusscript": "0.0.3",
+    "pm2": "^2.7.2",
+    "uws": "^0.14.5"
+  }
+}
