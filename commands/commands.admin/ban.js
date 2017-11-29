@@ -8,8 +8,8 @@ exports.run = async(client, message, args) => {
        if  (!message.member.hasPermissions(["BAN_MEMBERS"])) return message.reply("Não tens permissão para executar este comando!!");
        let reason = args.slice(1).join(' ');
        let user = message.mentions.users.first();
-       if (message.mentions.users.size < 1) return message.reply('Seleciona o utilizador que queres banir! (?ban @username razão)').catch(console.error);
-       if (reason.length < 1) return message.reply('Deves especificar o motivo para o utilizador ser banido!(?ban @username razão)');
+       if (message.mentions.users.size < 1) return message.reply('Seleciona o utilizador que queres banir! `?ban @username razão`').catch(console.error);
+       if (reason.length < 1) return message.reply('Deves especificar o motivo para o utilizador ser banido! `?ban @username razão`');
     
        if (!message.guild.member(user).bannable) return message.reply("Eu não posso banir este utilizador!");
        let member = await message.guild.member(user).ban()
@@ -19,7 +19,7 @@ exports.run = async(client, message, args) => {
            .setColor('#FF0000')
            .setTimestamp()
            .addField('Ação:', '__***Ban***__')
-           .addField('Utilizador:', `${user.username}`)
+           .addField('Utilizador:', `${user.tag}`)
            .addField('Staff:', `${message.author.username}`)
            .addField('Razão:', reason)
            .setFooter('GamingPT Bot Oficial')

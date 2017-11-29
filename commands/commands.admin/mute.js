@@ -1,5 +1,7 @@
 exports.run = async(client, message, args) => {
     const ms = require("ms");
+    message.delete();
+    if  (!message.member.hasPermissions(["MUTE_MEMBERS"])) return message.reply("Não tens permissão para executar este comando!");
     let member = message.mentions.members.first();
     if(!member) return message.reply('Não mencionas-te um utilizador!');
     let muteRole = message.guild.roles.find("name", "Calado");
@@ -9,7 +11,7 @@ exports.run = async(client, message, args) => {
     if(!time) return message.reply("Não foi defenido o tempo para o utilizador ficar calado!");
     
     member.addRole(muteRole.id);
-    message.channel.send(`Foste calado por ${ms(ms(time), {long: true})} ${member.user.tag}!`);
+    message.channel.send(`${member.user.tag}, foste calado por ${ms(ms(time), {long: true})}!`);
 
     setTimeout (function() {
         member.removeRole(muteRole.id);
